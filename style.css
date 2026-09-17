@@ -62,6 +62,13 @@ body{
 /* Spinge il footer in fondo: il contenuto principale occupa lo spazio
    disponibile, anche quando è corto. */
 body > footer{ margin-top:auto; }
+/* Nelle pagine progetto l'immagine principale scala con l'altezza dello
+   schermo (max-height:60vh), quindi il contenuto è quasi sempre vicino
+   o oltre l'altezza della finestra: il solo margin-top:auto sul footer
+   non basta perché serve spazio "avanzato" per funzionare. Facendo
+   crescere #project-content si garantisce il footer sempre in fondo,
+   sia che il contenuto sia corto sia che sia più lungo dello schermo. */
+#project-content{ flex:1 0 auto; }
 
 
 img{ max-width:100%; display:block; min-width: 0; }
@@ -644,6 +651,7 @@ footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:1
   #project-content .section-head,
   #project-content .project-hero-image,
   #project-content .project-meta,
+  #project-content .project-intro,
   #project-content .process-grid,
   #project-content .project-body{ order:3; width:100%; }
   /* L'immagine principale in flex-wrap collasserebbe a larghezza 0:
@@ -754,7 +762,7 @@ img.zoomable{ cursor: zoom-in; }
 .project-hero-image{
   background:#ececec00;
   overflow:hidden;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   text-align:center;
 }
 .project-hero-image img{
@@ -767,20 +775,39 @@ img.zoomable{ cursor: zoom-in; }
 
 .project-meta{
   display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
-  padding:26px 0; margin-bottom:18px; border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);
-}
-@media (max-width:700px){ .project-meta{ grid-template-columns:repeat(2,1fr); } }
+  padding:18px 0; margin-bottom:40px; border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);}
+@media (max-width:700px){ .project-meta{ grid-template-columns:repeat(2,1fr); gap: 10px;}}
 .project-meta dt{ font-size:0.555rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-accent); margin-bottom:6px; }
+@media (max-width: 700px) {.project-meta dt { font-size: 0.450rem;}}
 .project-meta dd{ font-size:0.825rem; }
+@media (max-width: 700px) {.project-meta dd { font-size: 0.750rem;}}
 
-.project-body{ max-width:68ch; margin-bottom:60px; }
+.project-body{ max-width:48ch;}
 .project-body p{ font-size:0.875rem; margin-bottom:20px; }
 
-.process-grid{ column-count:2; column-gap:32px; margin:0 auto 60px; max-width:800px; }
-@media (max-width:700px){ .process-grid{ column-count:1; } }
+/* Testo del progetto affiancato da un'immagine a altezza fissa. */
+.project-intro{
+  display:grid; grid-template-columns: 1fr 1fr; gap:48px;
+  align-items:start; margin-bottom:60px;
+}
+@media (max-width:700px) {.project-intro{margin-bottom: 5px;}}
+.project-intro .project-body{ margin-bottom:0; max-width:none; }
+.project-intro-image{
+  height:300px; width: 450px; object-fit: cover; overflow:hidden; background:#ececec;
+}
+.project-intro-image img{ width:100%; height:100%; object-fit:cover; display:block; }
+@media (max-width:800px){
+  .project-intro{ grid-template-columns:1fr; gap:16px; }
+  .project-intro-image{ height:200px; width:100%; max-width:500px; margin:0 auto; order:-1; }
+}
+
+.process-grid{ column-count:2; column-gap:32px; margin: 60px auto; max-width:800px;
+  align-content: center;}
+@media (max-width:700px){ .process-grid{ column-count: 1; margin-top: 30px;} }
 .process-grid .process-image{
   break-inside: avoid;
-  margin-bottom:40px;
+  margin:0 auto 40px;
+  max-width:500px;
   background:#ececec;
 }
 .process-image img{ width:100%; height:auto; display:block; }
