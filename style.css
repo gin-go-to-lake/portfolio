@@ -77,6 +77,14 @@ img{
 a{ color:inherit; text-decoration:none; }
 ul{ list-style:none; }
 button{ font-family:inherit; cursor:pointer; }
+input, textarea, select{
+  font-family:inherit;
+  /* Senza un line-height esplicito il browser ne calcola uno "normale" in
+     base al font: con font particolari come i nostri spesso non basta per
+     contenere le lettere con parti sopra/sotto la riga, che risultano
+     tagliate dentro il campo. */
+  line-height:1.5;
+}
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
@@ -363,8 +371,8 @@ header{
 }
 @media (max-width: 1000px){ .gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px){
-  .gallery-grid{ grid-template-columns: 1fr; gap: 0; margin-bottom: 0; }
-  .plate-image{ aspect-ratio: 3/1 !important; }
+  .gallery-grid{ grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 0; }
+  .plate-image{ aspect-ratio: 4/3 !important; }
   .plate-image img{  width:100%; height:100%; object-fit:cover; object-position: center;}
   .plate-caption{ display:none !important; }
 }
@@ -513,6 +521,10 @@ margin-left: 22%;}
   .contact-lead{ text-align:left !important; }
   .contact-list{ text-align:left !important; }
   .social-list{ justify-content:flex-start !important; }
+  /* Come per la Hero: su schermi corti il contenuto centrato lascia un
+     grande vuoto sopra. Qui lo allineiamo in alto, con un po' di respiro
+     sotto l'header. */
+  #contatti.section-space--center{ justify-content:flex-start; padding-top:32px; }
 }
 .contact-lead{ font-family: var(--font-heading); font-size:1.7rem; color: var(--color-border); padding-top: 5px; text-align:right; }
 .contact-list{ margin-top:28px; color: var(--color-border); text-align:right; }
@@ -755,14 +767,14 @@ img.zoomable{ cursor: zoom-in; }
 
 .project-meta{
   display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
-  padding:26px 0; margin-bottom:48px; border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);
+  padding:26px 0; margin-bottom:18px; border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);
 }
 @media (max-width:700px){ .project-meta{ grid-template-columns:repeat(2,1fr); } }
-.project-meta dt{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-accent); margin-bottom:6px; }
-.project-meta dd{ font-size:0.95rem; }
+.project-meta dt{ font-size:0.555rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-accent); margin-bottom:6px; }
+.project-meta dd{ font-size:0.825rem; }
 
 .project-body{ max-width:68ch; margin-bottom:60px; }
-.project-body p{ margin-bottom:20px; }
+.project-body p{ font-size:0.875rem; margin-bottom:20px; }
 
 .process-grid{ column-count:2; column-gap:32px; margin:0 auto 60px; max-width:800px; }
 @media (max-width:700px){ .process-grid{ column-count:1; } }
