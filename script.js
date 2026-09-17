@@ -9,7 +9,6 @@
 const PROJECTS = [
   { file: 'progetto-trentasettecentigradi.html', title: 'Trentasette centigradi' },
   { file: 'progetto-dagrandesaròunafoca.html', title: 'Da grande sarò una foca' },
-  { file: 'progetto-botanicadiunaresistenza.html', title: 'Botanica di una resistenza' },
   { file: 'progetto-missioneterra.html', title: 'Missione: Terra!' },
   { file: 'progetto-girini.html', title: 'Tornando a casa' },
   { file: 'progetto-madonnadellasalute.html', title: 'Madonna della salute' },
@@ -27,10 +26,11 @@ const PROJECTS = [
   { file: 'progetto-iliade.html', title: 'La Iliada contada a los ninos' },
   { file: 'progetto-arancioamaro.html', title: 'Arancio Amaro' },
   { file: 'progetto-zanichelli.html', title: 'Vivavoce' },
-  { file: 'progetto-respiro.html', title: 'Respiro' },
   { file: 'progetto-lasirenetta.html', title: 'La Sirenetta' },
   { file: 'progetto-krivapeta.html', title: 'La krivapeta' },
   { file: 'progetto-leggeretutti.html', title: 'Leggere: tutti' },
+  { file: 'progetto-respiro.html', title: 'Respiro' },
+  { file: 'progetto-botanicadiunaresistenza.html', title: 'Botanica di una resistenza' },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
