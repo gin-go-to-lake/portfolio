@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-it="Grazie | Giulia Cornaggia" data-en="Thank you | Giulia Cornaggia">Grazie | Giulia Cornaggia</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.giuliacornaggia.com/grazie.html">
+<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Betania+Patmos+In&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#grazie-content" data-it="Vai al contenuto" data-en="Skip to content">Vai al contenuto</a>
+
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <a class="brand" href="index.html"><img src="assets/logo.png" alt="Giulia Cornaggia" class="logo"></a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#portfolio" data-it="Portfolio" data-en="Portfolio">Portfolio</a></li>
+      <li data-it-only><a href="index.html#laboratori" data-it="Laboratori" data-en="Workshops">Laboratori</a></li>
+      <li><a href="index.html#about" data-it="About Me" data-en="About Me">About Me</a></li>
+      <li><a href="index.html#contatti" data-it="Contatti" data-en="Contact">Contatti</a></li>
+
+      <li class="nav-lang-mobile">
+        <div class="lang-switch">
+          <button data-lang="it" class="active">IT</button>
+          <button data-lang="en">EN</button>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button data-lang="it" class="active">IT</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="grazie-content" class="section-space section-space--center">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-head" style="margin-bottom:24px;">
+      <span class="eyebrow" data-it="Messaggio inviato" data-en="Message sent">Messaggio inviato</span>
+      <h1 data-it="Grazie per avermi scritto!" data-en="Thanks for reaching out!">Grazie per avermi scritto!</h1>
+    </div>
+    <p data-it="Ho ricevuto il tuo messaggio e ti risponderò il prima possibile."
+       data-en="I've received your message and will get back to you as soon as possible."
+       style="color:var(--color-text-muted); max-width:52ch; margin:0 auto 32px;">
+      Ho ricevuto il tuo messaggio e ti risponderò il prima possibile.
+    </p>
+    <a href="index.html" class="cta-link" data-it="Torna al portfolio →" data-en="Back to the portfolio →">Torna al portfolio →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Giulia Cornaggia — P.IVA 03108690300​</span>
+    <span>
+      <a href="termini-e-condizioni.html" style="color:inherit; border-bottom:1px solid var(--color-border);">Termini e Condizioni</a>
+      &nbsp;·&nbsp;
+      <a href="privacy.html" style="color:inherit; border-bottom:1px solid var(--color-border);">Privacy</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -97,12 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const riduciMovimentoHero = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let heroGiaRimossa = false;
 
-  function rimuoviHeroSenzaSalti(){
+  function rimuoviHeroSenzaSalti(target){
     if(heroGiaRimossa || !heroSection) return;
     heroGiaRimossa = true;
-    const altezza = heroSection.offsetHeight;
     heroSection.style.display = 'none';
-    window.scrollBy({ top: -altezza, left: 0, behavior: 'instant' });
+    // Ricalcola lo scarto DOPO aver nascosto l'Hero, invece di sottrarre
+    // alla cieca la sua altezza: su "Contatti" (l'ultima sezione, con poco
+    // spazio sotto verso il footer) il browser può già aver bloccato da
+    // solo lo scroll al nuovo massimo possibile quando il documento si
+    // accorcia; sottrarre comunque l'altezza dell'Hero sommava un'altra
+    // correzione a quella già avvenuta, sballando il punto d'arrivo. Così
+    // invece si corregge esattamente lo scarto residuo, qualunque esso sia.
+    if(target){
+      const header = document.querySelector('header');
+      const offset = header ? header.offsetHeight : 0;
+      const scarto = target.getBoundingClientRect().top - offset;
+      if(scarto) window.scrollBy({ top: scarto, left: 0, behavior: 'instant' });
+    }
   }
 
   linkSezioni.forEach(link => {
@@ -113,11 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if(riduciMovimentoHero){
         target.scrollIntoView({ behavior: 'auto' });
-        rimuoviHeroSenzaSalti();
+        rimuoviHeroSenzaSalti(target);
         return;
       }
 
-      scrollLentoA(target, DURATA_SCROLL, rimuoviHeroSenzaSalti);
+      scrollLentoA(target, DURATA_SCROLL, () => rimuoviHeroSenzaSalti(target));
     });
   });
 

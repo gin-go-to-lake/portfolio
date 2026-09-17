@@ -150,7 +150,7 @@ section[id] { scroll-margin-top: 127px; }
   text-transform: uppercase;
 }
 
-.section-head h2{ font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
+.section-head h1, .section-head h2{ font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
 .section-head p{ color: var(--color-text-muted); max-width:58ch; margin-top:14px; font-size:1rem; }
 
 /* ============================================================
