@@ -138,6 +138,10 @@ section[id] { scroll-margin-top: 127px; }
   text-transform:lowercase; color: var(--color-accent); display:block; margin-bottom:14px;
 }
 
+@media (max-width:820px) {
+  #portfolio .section-head{ margin-top:0px; margin-bottom: 0px;}
+}
+
 /* Eyebrow delle pagine progetto: font pulito e maiuscolo (font-body),
    diverso da quello decorativo della home. Scoperto tramite
    #project-content così non serve toccare l'HTML delle pagine
@@ -318,7 +322,7 @@ header{
 .hero-loop{
   position:relative;
   width:100%;
-  aspect-ratio: 3/3.2; /* era 3/4: altezza ridotta all'80% (4 * 0.8 = 3.2) */
+  aspect-ratio: 3/3.7; /* era 3/4: altezza ridotta all'80% (4 * 0.8 = 3.2) */
   background:#ececec; overflow:hidden;
 }
 .hero-loop img{
@@ -332,7 +336,7 @@ header{
 
 @media (max-width: 900px){
   .hero.section-space{ min-height:100vh; justify-content:flex-start; }
-  .hero{ padding: 24px 0 40px; }
+  .hero{ padding: 24px 0 0px; }
   /* Su mobile nascondo il collage sparso e mostro il loop */
   .hero-collage{ display:none; }
   .hero-mobile{ display:block; padding: 0 24px; width:100%; }
